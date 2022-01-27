@@ -94,22 +94,18 @@ Call the function and pass in the cats array as the argument.
 
 Assign the return value of the function to the innerHTML property of the element on the HTML page with a class of cat-container. */
 
-console.log("--------------------------------");
-
 function createCats(cats) {
+  const catList = document.querySelector(".cat-container");
+  let catHtml = "";
+
   for (let i = 0; i < cats.length; i++) {
-    catName = "";
-    catAge = "";
-
     if (!cats[i].age) {
-      catAge = catAge + "<p>Age unkown</p>";
-    } else {
-      catAge = catAge + "<p>" + cats[i].age + "</p>";
+      cats[i].age = "Age unkown";
     }
-
-    catName = catName + "<h5>" + cats[i].name + "</h5>";
-    console.log(catAge);
+    catHtml += `<h5>Name: ${cats[i].name}</5>
+             <p>Age: ${cats[i].age}</p>`;
   }
+  return (catList.innerHTML = catHtml);
 }
 
 createCats(cats);

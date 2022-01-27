@@ -94,12 +94,19 @@ Call the function and pass in the cats array as the argument.
 
 Assign the return value of the function to the innerHTML property of the element on the HTML page with a class of cat-container. */
 
+/**
+ * loops the length of the given argument. Targeting the name and age property of it. creating html and attaching the html value to the innerHTML of the catList variable. returning the catList's innerHTML.
+ * @param {which accepts one argument} cats
+ * @returns The catList.innerHTML with the value of the catHtml variable.
+ */
 function createCats(cats) {
   const catList = document.querySelector(".cat-container");
   let catHtml = "";
 
   for (let i = 0; i < cats.length; i++) {
+    //checks if the age property of the object in the cats array exists.
     if (!cats[i].age) {
+      //if it don't exist, it makes a age property with the string value of "Age unknown".
       cats[i].age = "Age unkown";
     }
     catHtml += `<h5>Name: ${cats[i].name}</h5>

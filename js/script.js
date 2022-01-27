@@ -38,9 +38,13 @@ Loop through the p elements and change the colour of each to "red". */
 
 const paragraphs = document.querySelectorAll("p");
 
+paragraphs.forEach((para) => (para.style.color = "red"));
+
+/*Alternative code:
 for (let i = 0; i < paragraphs.length; i++) {
   paragraphs[i].style.color = "red";
 }
+*/
 
 // Question 6
 /* Select the div with a class of results, assign it to a variable called resultsContainer and set its inner HTML to be <p>New paragraph</p> and its background colour to be yellow. */
@@ -95,12 +99,11 @@ Call the function and pass in the cats array as the argument.
 Assign the return value of the function to the innerHTML property of the element on the HTML page with a class of cat-container. */
 
 /**
- * loops the length of the given argument. Targeting the name and age property of it. creating html and attaching the html value to the innerHTML of the catList variable. returning the catList's innerHTML.
+ * loops the length of the given argument. Targeting the name and age property of it. creating html and returning it.
  * @param {which accepts one argument} cats
- * @returns The catList.innerHTML with the value of the catHtml variable.
+ * @returns the value of the catHtml variable. (which is the created html).
  */
 function createCats(cats) {
-  const catList = document.querySelector(".cat-container");
   let catHtml = "";
 
   for (let i = 0; i < cats.length; i++) {
@@ -109,10 +112,12 @@ function createCats(cats) {
       //if it don't exist, it makes a age property with the string value of "Age unknown".
       cats[i].age = "Age unkown";
     }
-    catHtml += `<h5>Name: ${cats[i].name}</h5>
-                <p>Age: ${cats[i].age}</p>`;
+    catHtml += `<div>
+                  <h5>Name: ${cats[i].name}</h5>
+                  <p>Age: ${cats[i].age}</p>
+                </div>`;
   }
-  return (catList.innerHTML = catHtml);
+  return catHtml;
 }
 
-createCats(cats);
+document.querySelector(".cat-container").innerHTML = createCats(cats);

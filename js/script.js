@@ -102,8 +102,8 @@ function createCats(cats) {
     if (!cats[i].age) {
       cats[i].age = "Age unkown";
     }
-    catHtml += `<h5>Name: ${cats[i].name}</5>
-             <p>Age: ${cats[i].age}</p>`;
+    catHtml += `<h5>Name: ${cats[i].name}</h5>
+                <p>Age: ${cats[i].age}</p>`;
   }
   return (catList.innerHTML = catHtml);
 }

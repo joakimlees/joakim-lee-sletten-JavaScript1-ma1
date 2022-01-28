@@ -38,6 +38,7 @@ Loop through the p elements and change the colour of each to "red". */
 
 const paragraphs = document.querySelectorAll("p");
 
+//For each paragraphs("para=paragraphs[i]") new method-> (paragraphs[i] color red).
 paragraphs.forEach((para) => (para.style.color = "red"));
 
 /*Alternative code:
